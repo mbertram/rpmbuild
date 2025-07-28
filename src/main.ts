@@ -72,7 +72,7 @@ async function run() {
     // Execute rpmbuild , -ba generates both RPMS and SPRMS
     try {
       await exec.exec(
-        `rpmbuild -ba ${specFile.destFullPath}`
+        `rpmbuild -ba --define "_binary_payload w9.gzdio" ${specFile.destFullPath}`
       );
     } catch (err) {
       core.setFailed(`action failed with error: ${err}`);
